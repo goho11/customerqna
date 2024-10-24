@@ -20,3 +20,5 @@ updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
 is_secure bit DEFAULT 0,
 is_deleted bit DEFAULT 0 );
 
+INSERT INTO customerqna (title, content, username, password, is_secure) 
+	VALUES ('title', 'content', 'username', 'password', 1);
