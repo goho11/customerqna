@@ -10,6 +10,10 @@ import org.apache.ibatis.annotations.ResultMap;
 import org.apache.ibatis.annotations.Results;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
+import org.apache.ibatis.jdbc.SQL;
+import org.springframework.data.domain.Pageable;
+
+import kr.co.greenart.web.util.MyOrder;
 
 @Mapper
 public interface QNAMapper {
@@ -38,7 +42,7 @@ public interface QNAMapper {
 				, @Result(column = "is_secure", property = "secure")
 		}
 	)
-	List<QNA> findAll(int pageSize, int offset);
+	List<QNA> findAll(Pageable page);
 	
 	// 작성글 비밀글 여부
 	@Select({
@@ -72,6 +76,18 @@ public interface QNAMapper {
 	// 조회수 증가
 	@Update("UPDATE customerqna SET views = views + 1 WHERE article_id = #{articleId}")
 	int updateCount(Integer articleId);
+	
+	class SQLProvider {
+		public String selectOrderBy(MyOrder order) {
+			return new SQL()
+					.SELECT("columns")
+					.FROM("tablename")
+//					.ORDER_BY(order.get정렬방식())
+					.LIMIT("리밋")
+					.OFFSET("오프셋")
+					.toString();
+		}
+	}
 
 //	// 5. 게시글(id)의 비밀 여부 조회 (is_secure)
 //	@Select("select is_secure from customerqna where article_id = 0;")

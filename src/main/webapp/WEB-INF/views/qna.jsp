@@ -34,16 +34,16 @@
 </head>
 <body>
 <h2>Q&A 게시판</h2>
-<a href="/write.jsp" class="btn">글 작성</a>
+<a href="/write" class="btn">문의작성</a>
 <table>
     <thead>
         <tr>
             <th>글번호</th>
             <th>제목</th>
-            <th>작성자</th>
-            <th>조회수</th>
-            <th>보안 여부</th>
             <th>내용</th>
+            <th>작성자</th>
+            <th>보안 여부</th>
+            <th>조회수</th>
         </tr>
     </thead>
     <tbody>
@@ -51,10 +51,10 @@
             <tr>
                 <td>${qna.articleId}</td>
                 <td><a href="/qna/${qna.articleId}">${qna.title}</a></td>
-                <td>${qna.username}</td>
-                <td>${qna.views}</td>
-                <td>${qna.secure ? '예' : '아니오'}</td>
                 <td>${qna.content}</td>
+                <td>${qna.username}</td>
+                <td>${qna.secure ? '예' : '아니오'}</td>
+                <td>${qna.views}</td>
             </tr>
        	</c:forEach>
     </tbody>

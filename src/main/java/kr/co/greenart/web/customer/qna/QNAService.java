@@ -2,6 +2,8 @@ package kr.co.greenart.web.customer.qna;
 
 import java.util.List;
 
+import org.springframework.data.domain.Pageable;
+
 /*
 1. 게시글 작성
 필수 입력 항목: 제목, 내용, 유저이름, 비밀번호
@@ -28,9 +30,12 @@ import java.util.List;
 6. 공유
 게시글 공유 링크 생성 
  */
+
 public interface QNAService {
-	List<QNA> findAll(int pageSize, int offset);
-
+	List<QNA> findAll(Pageable page);
+	
 	QNA findById(Integer articleId);
-
+	
+	QNA save(QNA qna);
+	
 }

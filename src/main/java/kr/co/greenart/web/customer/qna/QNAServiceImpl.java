@@ -3,6 +3,7 @@ package kr.co.greenart.web.customer.qna;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,8 +41,17 @@ public class QNAServiceImpl implements QNAService {
 
 	@Override
 	@Transactional
-	public List<QNA> findAll(int pageSize, int offset) {
-		List<QNA> all = mapper.findAll(pageSize, offset);
+	public List<QNA> findAll(Pageable page) {
+		List<QNA> all = mapper.findAll(page);
 		return all;
 	}
+
+	@Override
+	@Transactional
+	public QNA save(QNA qna) {
+		mapper.save(qna);
+		
+		return qna;
+	}
+	
 }

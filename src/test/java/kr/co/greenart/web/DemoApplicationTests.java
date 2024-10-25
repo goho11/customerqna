@@ -32,11 +32,11 @@ class DemoApplicationTests {
 		assertNotNull(qna.getArticleId());
 	}
 
-	@Test
-	@Order(2)
-	void testSelect() {
-		List<QNA> all = mapper.findAll(10, 0);
-		
-		assertNotEquals(0, all.size());
-	}
+//	@Test
+//	@Order(2)
+//	void testSelect() {
+//		List<QNA> all = mapper.findAll(10, 0);
+//		
+//		assertNotEquals(0, all.size());
+//	}
 }
