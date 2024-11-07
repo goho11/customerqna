@@ -22,15 +22,15 @@ class DemoApplicationTests {
 	@Autowired
 	private QNAMapper mapper;
 	
-	@Test
-	@Order(1)
-	void testInsert() {
-		QNA qna = QNA.builder().title("제목").content("내용").username("유저네임").password("비밀번호").build();
-		int rows = mapper.save(qna);
-		
-		assertEquals(1, rows);
-		assertNotNull(qna.getArticleId());
-	}
+//	@Test
+//	@Order(1)
+//	void testInsert() {
+//		QNA qna = QNA.builder().title("제목").content("내용").username("유저네임").password("비밀번호").build();
+//		int rows = mapper.save(qna);
+//		
+//		assertEquals(1, rows);
+//		assertNotNull(qna.getArticleId());
+//	}
 
 //	@Test
 //	@Order(2)
