@@ -47,14 +47,14 @@
         </tr>
     </thead>
     <tbody>
-		<c:forEach var="qna" items="${qnaList}">        
+		<c:forEach var="qna" items="${ qnaList }">        
             <tr>
-                <td>${qna.articleId}</td>
-                <td><a href="/qna/${qna.articleId}">${qna.title}</a></td>
-                <td>${qna.content}</td>
-                <td>${qna.username}</td>
+                <td>${ qna.articleId }</td>
+                <td><a href="/qna/${ qna.articleId }">${ qna.title }</a></td>
+                <td>${ qna.content }</td>
+                <td>${ qna.username }</td>
                 <td>${qna.secure ? '예' : '아니오'}</td>
-                <td>${qna.views}</td>
+                <td>${ qna.views }</td>
             </tr>
        	</c:forEach>
     </tbody>

@@ -10,9 +10,9 @@ import org.springframework.data.domain.Pageable;
 비밀번호는 게시글 수정/삭제 시 필요
 
 2. 게시글 조회
-모든 사용자가 게시글 열람 가능 (비밀글은 비밀번호 일치시)
+*모든 사용자가 게시글 열람 가능 (비밀글은 비밀번호 일치시)
 조회수 자동 증가
-최신순/조회수순/댓글수순 정렬 가능
+*최신순/조회수순/댓글수순 정렬 가능
 페이지당 20개 게시글 표시
 
 3. 게시글 수정/삭제
@@ -37,5 +37,6 @@ public interface QNAService {
 	QNA findById(Integer articleId);
 	
 	QNA save(QNA qna);
-	
+
+	boolean deleteArticle(Integer articleId, String password);
 }

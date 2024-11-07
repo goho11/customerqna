@@ -50,8 +50,29 @@ public class QNAServiceImpl implements QNAService {
 	@Transactional
 	public QNA save(QNA qna) {
 		mapper.save(qna);
-		
+
 		return qna;
 	}
-	
+
+	@Override
+	@Transactional
+	public boolean deleteArticle(Integer articleId, String password) {
+	    // 게시글을 조회합니다.
+	    QNA qna = mapper.findById(articleId);
+
+	    // 게시글이 존재하지 않으면 null 반환
+	    if (qna == null) {
+	        throw new QNANotFoundException(articleId);
+	    }
+
+	    // 비밀번호가 일치하는지 확인하고, 삭제되지 않은 경우 삭제
+	    if (qna.getPassword().equals(password) && !qna.getDeleted()) {
+
+	    	mapper.deleteArticle(articleId);
+	        return true; 
+	    } else {
+	        return false; 
+	    }
+	}
+
 }
